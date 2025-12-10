@@ -1,4 +1,5 @@
 import { AppError } from '../../shared/errors/app.error'
+import { UrlNotFoundError } from '../../shared/errors/url-not-found.error'
 import { IUrlRepository } from '../repositories/IUrlReposository'
 
 export class RedirectUrlUseCase {
@@ -9,7 +10,7 @@ export class RedirectUrlUseCase {
 			const url = await this.urlRepository.findBySlug(slug)
 
 			if (!url) {
-				throw new AppError('Url não encontrada!', 404)
+				throw new UrlNotFoundError()
 			}
 
 			await this.urlRepository.incrementClicks(url.id)
