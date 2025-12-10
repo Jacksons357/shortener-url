@@ -15,7 +15,6 @@ export default function UrlList() {
   const { data, isLoading, isError } = useGetUrls()
   if (isLoading) return <p>Carregando URLs...</p>
   if (isError) return <p>Erro ao buscar URLs</p>
-  console.log(data)
 
   return (
     <Card className="w-1/3">
