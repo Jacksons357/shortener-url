@@ -47,3 +47,7 @@ npm run db:migrate
 ```bash
 npm run dev
 ```
+
+### Pronto! 
+- Api rodando em http://localhost:3333
+- Documentação dos endpoints (Swagger) rodando em http://localhost:3333/docs
