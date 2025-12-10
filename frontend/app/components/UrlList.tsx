@@ -17,7 +17,7 @@ export default function UrlList() {
   if (isError) return <p>Erro ao buscar URLs</p>
 
   return (
-    <Card className="w-1/3">
+    <Card className="max-h-[600px] overflow-y-auto">
       <CardHeader>
         <CardTitle>URLs</CardTitle>
         <CardDescription>Lista de URLs geradas</CardDescription>

@@ -8,3 +8,7 @@ export interface Url {
 export interface UrlResponse {
   urls: Url[]
 }
+
+export interface CreateUrlResponse {
+  url: string
+}

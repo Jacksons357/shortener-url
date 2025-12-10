@@ -10,7 +10,7 @@ export const useGetUrls = () => {
       return data?.urls
     },
     staleTime: 1000 * 60 * 5,
-    refetchInterval: 2000,
+    refetchInterval: 1000,
     refetchOnWindowFocus: true,
     refetchOnMount: true,
     refetchOnReconnect: true,
