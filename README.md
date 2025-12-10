@@ -1,3 +1,38 @@
+## Estrutura de pastas
+
+```
+/backend
+├── src/
+│   ├── application/
+│   │   ├── controllers/      # Recebe requests e chama os use-cases
+│   │   └── dtos/             # Data Transfer Objects (input/output)
+│   │
+│   ├── domain/
+│   │   ├── entities/         # Modelos do domínio
+│   │   ├── repositories/     # Interfaces que descrevem contratos dos repositórios
+│   │   └── use-cases/        # Use cases / serviços de aplicação
+│   │
+│   ├── infra/
+│   │   ├── database/
+│   │   │   ├── client/       # Conexão com o DB (ex: Prisma client)
+│   │   │   └── repository    # Implementação concreta dos repositórios
+│   │   ├── http/
+│   │   │   ├── middleware/
+│   │   │   └── routes/
+│   │   └── factories/        # Criação de instâncias e injeção de dependências
+│   │
+│   ├── docs/                 # Configuração da documentação da API
+│   │   └── swagger.ts        
+│   │
+│   ├── shared/
+│   │   ├── errors/           # Classes de erro customizadas
+│   │   └── utils/            # Funções utilitárias gerais
+│   │
+│   ├── app.ts                # Setup do Express (middlewares, routes)
+│   └── server.ts             # Inicialização do servidor (listen)
+└── package.json
+```
+
 ### Instrução de uso
 
 1. Clone o Repositorio:
