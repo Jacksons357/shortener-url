@@ -18,4 +18,27 @@ export class UrlRepository implements IUrlRepository {
 
 		return new Url(records)
 	}
+
+	async findBySlug(slug: string): Promise<Url | null> {
+		const url = await this.prisma.url.findUnique({
+			where: {
+				slug,
+			},
+		})
+
+		return url ? new Url(url) : null
+	}
+
+	async incrementClicks(id: string): Promise<void> {
+		await this.prisma.url.update({
+			where: {
+				id,
+			},
+			data: {
+				clicks: {
+					increment: 1,
+				},
+			},
+		})
+	}
 }

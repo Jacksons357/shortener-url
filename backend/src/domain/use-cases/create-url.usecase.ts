@@ -14,7 +14,11 @@ export class CreateUrlUseCase {
 				slug,
 			})
 
-			return url
+			const fullShortUrl = `${process.env.APP_URL}/${url.slug}`
+
+			return {
+				url: fullShortUrl,
+			}
 		} catch (error) {
 			throw new AppError('Não foi possivel criar a URL', 500)
 		}
