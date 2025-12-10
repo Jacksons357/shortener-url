@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Card,
   CardContent,
@@ -5,102 +7,15 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { useGetUrls } from '@/lib/queries/url'
 import { columns } from './columns'
 import { DataTable } from './data-table'
 
-interface Payment {
-  id: string
-  amount: number
-  status: string
-  email: string
-}
-
-async function getData(): Promise<Payment[]> {
-  return [
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    {
-      id: '728ed52f',
-      amount: 100,
-      status: 'pending',
-      email: 'm@example.com',
-    },
-    // ...
-  ]
-}
-
-export default async function UrlList() {
-  const data = await getData()
+export default function UrlList() {
+  const { data, isLoading, isError } = useGetUrls()
+  if (isLoading) return <p>Carregando URLs...</p>
+  if (isError) return <p>Erro ao buscar URLs</p>
+  console.log(data)
 
   return (
     <Card className="w-1/3">
@@ -109,7 +24,7 @@ export default async function UrlList() {
         <CardDescription>Lista de URLs geradas</CardDescription>
       </CardHeader>
       <CardContent>
-        <DataTable columns={columns} data={data} />
+        <DataTable columns={columns} data={data || []} />
       </CardContent>
     </Card>
   )
