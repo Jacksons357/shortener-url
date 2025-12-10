@@ -7,7 +7,9 @@ export const app = express()
 
 app.use(express.json())
 
-app.use('/', redirectRoutes)
 app.use('/url', urlRoutes)
+
+// rotas de redirecionamento manter por último
+app.use('/', redirectRoutes)
 
 app.use(errorHandler)

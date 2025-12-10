@@ -19,6 +19,11 @@ export class UrlRepository implements IUrlRepository {
 		return new Url(records)
 	}
 
+	async findAll(): Promise<Url[]> {
+		const urls = await this.prisma.url.findMany()
+		return urls.map((url) => new Url(url))
+	}
+
 	async findBySlug(slug: string): Promise<Url | null> {
 		const url = await this.prisma.url.findUnique({
 			where: {

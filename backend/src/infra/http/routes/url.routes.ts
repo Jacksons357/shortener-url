@@ -10,3 +10,5 @@ const controller = makeUrlController()
 urlRoutes.post('/', validateBody(createUrlSchema), (req, res) =>
 	controller.create(req, res),
 )
+
+urlRoutes.get('/', (req, res) => controller.findAll(req, res))
