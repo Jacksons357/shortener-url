@@ -6,14 +6,8 @@ export class UrlController {
 	constructor(private createUrlUseCase: CreateUrlUseCase) {}
 
 	async create(req: Request, res: Response) {
-		try {
-			const { longUrl } = req.body as CreateUrlDTO
-
-			const url = await this.createUrlUseCase.execute(longUrl)
-
-			return res.status(201).json(url)
-		} catch (error) {
-			return res.status(500).json({ error })
-		}
+		const { longUrl } = req.body as CreateUrlDTO
+		const url = await this.createUrlUseCase.execute(longUrl)
+		return res.status(201).json(url)
 	}
 }
