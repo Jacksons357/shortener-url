@@ -1,0 +1,10 @@
+import { Url } from '../entities/Url'
+
+export interface CreateUrlData {
+	slug: string
+	longUrl: string
+}
+
+export interface IUrlRepository {
+	create(data: CreateUrlData): Promise<Url>
+}
