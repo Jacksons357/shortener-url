@@ -51,3 +51,13 @@ npm run dev
 ### Pronto! 
 - Api rodando em http://localhost:3333
 - Documentação dos endpoints (Swagger) rodando em http://localhost:3333/docs
+
+8. inicie o frontend
+Navegue até a pasta do frontend, instale as dependências e rode a aplicação:
+
+```bash
+cd ..
+cd frontend
+npm install
+npm run dev
+```
